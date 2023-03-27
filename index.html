@@ -80,8 +80,8 @@
                 .then(adat => {
                     console.log(adat);
                     document.getElementById('kepecske').src = adat.sprites.other.home.front_default;
-                    let cardTitle = adat.name.charAt(0).toUpperCase() + adat.name.substring(1) + " " + aktualis;
-                    document.querySelector("#card-title").innerText = cardTitle;
+                    //let cardTitle = adat.name.charAt(0).toUpperCase() + adat.name.substring(1) + " " + aktualis;
+                    document.querySelector("#card-title").innerText = adat.name;
 
                 });
 

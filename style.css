@@ -19,3 +19,6 @@ h1 {
 #btn-kovetkezo {
     margin: 160px 0 0 0;
 }
+#card-title {
+    text-transform: capitalize;
+}
