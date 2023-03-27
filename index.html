@@ -22,8 +22,10 @@
 
                         <a href="#" id="btn-elozo" onclick="btnElozo()" class="btn btn-primary">Előző</a>
                     </div>
-                </div> -->
-                <a href="#" id="btn-elozo" onclick="btnElozo()" class="btn btn-primary">Előző</a>
+                </div>
+                <a href="#" id="btn-elozo" onclick="btnElozo()" class="btn btn-primary">Előző</a> -->
+                <button id="btn-elozo" onclick="btnElozo()" type="button" class="btn btn-primary">Előző</button>
+
             </div>
             <div class="col-10" id="main-div">
 
@@ -45,15 +47,16 @@
 
                         <a href="#" id="btn-kovetkezo" onclick="btnKovetkezo()" class="btn btn-primary">Következő</a>
                     </div>
-                </div> -->
-                <a href="#" id="btn-kovetkezo" onclick="btnKovetkezo()" class="btn btn-primary">Következő</a>
+                </div>
+                <a href="#" id="btn-kovetkezo" onclick="btnKovetkezo()" class="btn btn-primary">Következő</a> -->
+                <button id="btn-kovetkezo" onclick="btnKovetkezo()" type="button"
+                    class="btn btn-primary">Következő</button>
+
             </div>
         </div>
     </div>
 
     </div>
-
-
 
     <script>
         let aktualis = 1;
@@ -80,13 +83,18 @@
 
                 });
 
-
-
         }
 
         function btnKovetkezo() {
             if (aktualis < poke_array.length) {
                 aktualis++;
+                document.getElementById("btn-elozo").disabled = false;
+                if (aktualis == poke_array.length) {
+                    document.getElementById("btn-kovetkezo").disabled = true;
+                }
+                else {
+                    document.getElementById("btn-kovetkezo").disabled = false;
+                }
                 kiir();
             }
 
@@ -95,6 +103,13 @@
         function btnElozo() {
             if (aktualis > 1) {
                 aktualis--;
+                document.getElementById("btn-kovetkezo").disabled = false;
+                if (aktualis == 1) {
+                    document.getElementById("btn-elozo").disabled = true;
+                }
+                else {
+                    document.getElementById("btn-elozo").disabled = false;
+                }
                 kiir();
             }
 
