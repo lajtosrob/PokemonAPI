@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <h1>PokemonAPI</h1>
-            <div class="col-1">
+            <div class="col-2">
                 <!-- <div class="card" style="width: auto;">
 
                     <div class="card-body">
@@ -27,7 +27,7 @@
                 <button id="btn-elozo" onclick="btnElozo()" type="button" class="btn btn-primary">Előző</button>
 
             </div>
-            <div class="col-10" id="main-div">
+            <div class="col-8" id="main-div">
 
                 <div class="card" style="width: 20rem;">
                     <img id="kepecske" width="200px">
@@ -40,7 +40,7 @@
                 </div>
 
             </div>
-            <div class="col-1">
+            <div class="col-2">
                 <!-- <div class="card" style="width: 2rem;">
 
                     <div class="card-body">
@@ -81,7 +81,7 @@
                     console.log(adat);
                     document.getElementById('kepecske').src = adat.sprites.other.home.front_default;
                     //let cardTitle = adat.name.charAt(0).toUpperCase() + adat.name.substring(1) + " " + aktualis;
-                    document.querySelector("#card-title").innerText = adat.name;
+                    document.querySelector("#card-title").innerText = adat.name + " " + aktualis;
 
                 });
 
