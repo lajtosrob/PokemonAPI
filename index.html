@@ -60,8 +60,6 @@
 
     <script>
         let aktualis = 1;
-        document.getElementById("btn-elozo").disabled = true;
-
         let poke_array = [];
         function init() {
             fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1281")
@@ -88,32 +86,24 @@
         }
 
         function btnKovetkezo() {
-            if (aktualis < poke_array.length) {
-                aktualis++;
-                document.getElementById("btn-elozo").disabled = false;
-                if (aktualis == poke_array.length) {
-                    document.getElementById("btn-kovetkezo").disabled = true;
+                if (aktualis == 905) {
+                    aktualis = 1;
                 }
                 else {
-                    document.getElementById("btn-kovetkezo").disabled = false;
+                    aktualis++;
                 }
                 kiir();
-            }
-
         }
 
-        function btnElozo() {
-            if (aktualis > 1) {
-                aktualis--;
-                document.getElementById("btn-kovetkezo").disabled = false;
+        function btnElozo() {                
                 if (aktualis == 1) {
-                    document.getElementById("btn-elozo").disabled = true;
+                    aktualis = 905;
                 }
                 else {
-                    document.getElementById("btn-elozo").disabled = false;
+                    aktualis--;
                 }
                 kiir();
-            }
+
 
         }
 
