@@ -1,0 +1,37 @@
+<html>
+<head>
+</head>
+<body onload="init(); kiir()">
+<img id="kepecske" width="200px">
+
+
+<script>
+
+let poke_array=[];
+function init(){
+fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1281")
+.then(data => data.json())
+.then(adat => {for (let i=0; i<adat.count; i++){
+poke_array.push(adat.results[i].url);
+}
+}
+);
+}
+
+function kiir(){
+fetch("https://pokeapi.co/api/v2/pokemon/1/")
+.then(data => data.json())
+.then (adat => {
+console.log(adat);
+document.getElementById('kepecske').src=adat.sprites.other.home.front_default;
+
+
+
+});
+
+
+}
+
+</script>
+</body>
+</html>

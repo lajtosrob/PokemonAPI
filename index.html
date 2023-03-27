@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokemonAPI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="init(); kiir()">
+    <div class="container">
+        <div class="row">
+            <h1>PokemonAPI</h1>
+            <div class="col-1">
+                <!-- <div class="card" style="width: auto;">
+
+                    <div class="card-body">
+
+                        <a href="#" id="btn-elozo" onclick="btnElozo()" class="btn btn-primary">Előző</a>
+                    </div>
+                </div> -->
+                <a href="#" id="btn-elozo" onclick="btnElozo()" class="btn btn-primary">Előző</a>
+            </div>
+            <div class="col-10" id="main-div">
+
+                <div class="card" style="width: 20rem;">
+                    <img id="kepecske" width="200px">
+
+                    <div class="card-body">
+                        <h5 class="card-title" id="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-1">
+                <!-- <div class="card" style="width: 2rem;">
+
+                    <div class="card-body">
+
+                        <a href="#" id="btn-kovetkezo" onclick="btnKovetkezo()" class="btn btn-primary">Következő</a>
+                    </div>
+                </div> -->
+                <a href="#" id="btn-kovetkezo" onclick="btnKovetkezo()" class="btn btn-primary">Következő</a>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+    <script>
+        let aktualis = 1;
+        let poke_array = [];
+        function init() {
+            fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1281")
+                .then(data => data.json())
+                .then(adat => {
+                    for (let i = 0; i < adat.count; i++) {
+                        poke_array.push(adat.results[i].url);
+                    }
+                }
+                );
+        }
+
+        function kiir() {
+            fetch("https://pokeapi.co/api/v2/pokemon/" + aktualis + "/")
+                .then(data => data.json())
+                .then(adat => {
+                    console.log(adat);
+                    document.getElementById('kepecske').src = adat.sprites.other.home.front_default;
+                    let cardTitle = adat.name.charAt(0).toUpperCase() + adat.name.substring(1);
+                    document.querySelector("#card-title").innerText = cardTitle;
+
+                });
+
+
+
+        }
+
+        function btnKovetkezo() {
+            if (aktualis < poke_array.length) {
+                aktualis++;
+                kiir();
+            }
+
+        }
+
+        function btnElozo() {
+            if (aktualis > 1) {
+                aktualis--;
+                kiir();
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

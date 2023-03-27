@@ -1,0 +1,18 @@
+#container {
+    display: flex;
+    align-items: center;
+}
+h1 {
+    display: inline-block;
+    text-align: center;
+    margin: 30px 0 0 0;
+}
+.card {
+    margin: 50px auto;
+}
+#btn-elozo {
+    margin: 160px 0 0 0;
+}
+#btn-kovetkezo {
+    margin: 160px 0 0 0;
+}
