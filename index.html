@@ -60,6 +60,8 @@
 
     <script>
         let aktualis = 1;
+        document.getElementById("btn-elozo").disabled = true;
+
         let poke_array = [];
         function init() {
             fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1281")
@@ -78,7 +80,7 @@
                 .then(adat => {
                     console.log(adat);
                     document.getElementById('kepecske').src = adat.sprites.other.home.front_default;
-                    let cardTitle = adat.name.charAt(0).toUpperCase() + adat.name.substring(1);
+                    let cardTitle = adat.name.charAt(0).toUpperCase() + adat.name.substring(1) + " " + aktualis;
                     document.querySelector("#card-title").innerText = cardTitle;
 
                 });
